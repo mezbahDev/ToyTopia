@@ -1,11 +1,9 @@
 import React from "react";
+import Hero from "../components/Hero";
+import TrendyToys from "../components/TrendyToys";
 
 const Home = () => {
-  return (
-    <div>
-      <h1>This is home page</h1>
-    </div>
-  );
+  return null;
 };
 
 export default Home;

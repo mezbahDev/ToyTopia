@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="bg-[#C1E5FF] flex items-center justify-between px-[80px] py-2">
+    <div className="bg-[#C1E5FF] flex items-center justify-between px-[80px] py-2 w-full">
       <h1
         className="text-[#FF616B] text-4xl"
         style={{ fontFamily: "Fredoka One" }}
