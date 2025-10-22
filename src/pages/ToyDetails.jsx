@@ -23,10 +23,7 @@ const ToyDetails = () => {
         setToy(foundToy);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error("Error fetching data:", err);
-        setLoading(false);
-      });
+      .catch(() => setLoading(false));
   }, [id]);
 
   if (loading)
@@ -59,11 +56,11 @@ const ToyDetails = () => {
 
   const handleAddToCart = () => {
     if (quantity > 0) {
-      addToCart(toy, quantity); 
+      addToCart(toy, quantity);
       toast.success(`${quantity} x ${toy.toyName} added to cart!`, {
         autoClose: 2000,
       });
-      setQuantity(0); 
+      setQuantity(0);
     }
   };
 

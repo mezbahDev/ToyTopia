@@ -1,29 +1,27 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (toy) => {
-    setCartItems((prevItems) => {
-      const existing = prevItems.find((item) => item.id === toy.toyId);
-      if (existing) {
-        return prevItems.map((item) =>
-          item.id === toy.toyId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+  const addToCart = (item, quantity) => {
+    setCartItems((prev) => {
+      const existingItem = prev.find((i) => i.id === item.toyId);
+      if (existingItem) {
+        return prev.map((i) =>
+          i.id === item.toyId ? { ...i, quantity: i.quantity + quantity } : i
         );
       } else {
         return [
-          ...prevItems,
+          ...prev,
           {
-            id: toy.toyId,
-            name: toy.toyName,
-            seller: toy.seller || "Unknown",
-            price: toy.price,
-            quantity: 1,
-            img: toy.pictureURL,
+            id: item.toyId,
+            name: item.toyName,
+            price: item.price,
+            img: item.pictureURL,
+            seller: item.sellerName || "Unknown",
+            quantity: quantity,
           },
         ];
       }
