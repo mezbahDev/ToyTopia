@@ -10,6 +10,7 @@ import SignUp from "../pages/SignUp";
 import ToyDetails from "../pages/ToyDetails";
 import MyProfile from "../pages/MyProfile";
 import PrivateRoute from "../routes/PrivateRoute";
+import ForgotPassword from "../pages/ForgotPassword"; // import forgot password
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "aboutus", element: <AboutUs /> },
       { path: "signin", element: <Signin /> },
       { path: "signup", element: <SignUp /> },
+      { path: "forgot-password", element: <ForgotPassword /> }, // forgot password route
       { path: "cart", element: <ShoppingCart /> },
 
       {

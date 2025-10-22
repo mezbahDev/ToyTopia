@@ -1,9 +1,16 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser, FaLock, FaGoogle, FaGithub } from "react-icons/fa";
+import {
+  FaUser,
+  FaLock,
+  FaGoogle,
+  FaGithub,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-import Swal from "sweetalert2"; 
+import Swal from "sweetalert2";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -15,6 +22,7 @@ const Signin = () => {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,6 +65,7 @@ const Signin = () => {
     try {
       const googleProvider = new GoogleAuthProvider();
       await googleLogin(googleProvider);
+      Swal.fire("Success", "Signed in with Google!", "success");
       navigate("/");
     } catch (error) {
       console.error("Google login failed:", error);
@@ -69,10 +78,10 @@ const Signin = () => {
   const handleGithubSignIn = async () => {
     setError("");
     setLoading(true);
-
     try {
       const githubProvider = new GithubAuthProvider();
       await googleLogin(githubProvider);
+      Swal.fire("Success", "Signed in with Github!", "success");
       navigate("/");
     } catch (error) {
       console.error("GitHub login failed:", error);
@@ -80,6 +89,10 @@ const Signin = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleForgotPassword = () => {
+    navigate("/forgot-password", { state: { email: formData.email } });
   };
 
   return (
@@ -109,22 +122,38 @@ const Signin = () => {
               onChange={handleChange}
               required
               disabled={loading}
-              className="outline-none flex-1 b text-gray-700"
+              className="outline-none flex-1 text-gray-700 bg-transparent"
             />
           </div>
 
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm bg-white focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaLock className="text-gray-400 text-xl" />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
               disabled={loading}
-              className="outline-none flex-1 bg-transparent text-gray-700"
+              className="outline-none flex-1 text-gray-700 bg-transparent"
             />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="cursor-pointer text-gray-500"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
+
+          <div className="flex justify-end text-sm text-[#FF616B] font-semibold">
+            <button
+              type="button"
+              onClick={handleForgotPassword}
+              className="hover:underline cursor-pointer"
+            >
+              Forgot Password?
+            </button>
           </div>
 
           <button
@@ -137,9 +166,9 @@ const Signin = () => {
         </form>
 
         <div className="flex items-center my-6">
-          <div className="flex-1  bg-gray-300"></div>
+          <div className="flex-1 bg-gray-300"></div>
           <p className="px-4 text-gray-500 text-sm">Or sign in with</p>
-          <div className="flex-1  bg-gray-300"></div>
+          <div className="flex-1 bg-gray-300"></div>
         </div>
 
         <div className="flex justify-center gap-4">

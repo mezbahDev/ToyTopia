@@ -1,6 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser, FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaLock,
+  FaGoogle,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -17,6 +24,8 @@ const SignUp = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -170,7 +179,7 @@ const SignUp = () => {
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaLock className="text-gray-400 text-xl" />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
               value={formData.password}
@@ -179,12 +188,18 @@ const SignUp = () => {
               disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="cursor-pointer text-gray-500"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
 
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaLock className="text-gray-400 text-xl" />
             <input
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
               placeholder="Confirm Password"
               value={formData.confirmPassword}
@@ -193,6 +208,12 @@ const SignUp = () => {
               disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
+            <span
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="cursor-pointer text-gray-500"
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
 
           <button
