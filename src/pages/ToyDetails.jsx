@@ -47,8 +47,7 @@ const ToyDetails = () => {
   };
 
   return (
-    <div className="flex items-center text-black px-20 w-10/12 mx-auto">
-
+    <div className="flex flex-col items-center text-black px-20 w-10/12 mx-auto gap-20">
       <div className="flex items-center gap-10 bg-white p-5 rounded-2xl mx-auto justify-center shadow-lg">
         <img
           src={toy.pictureURL}
@@ -122,10 +121,15 @@ const ToyDetails = () => {
         </div>
       </div>
 
-      <div>
-        <h1>Product Details</h1>
-        <p>
-          description
+      <div className="flex flex-col gap-15 items-center">
+        <h1
+          className="text-[70px] text-[#FAFAFA]"
+          style={{ fontFamily: "Fredoka One" }}
+        >
+          Product Details
+        </h1>
+        <p className=" shadow-xl bg-white p-5 rounded-2xl text-[20px]">
+          {toy.description}
         </p>
       </div>
     </div>
