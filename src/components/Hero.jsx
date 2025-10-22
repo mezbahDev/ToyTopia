@@ -41,7 +41,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % banners.length);
-    }, 1000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 

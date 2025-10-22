@@ -1,25 +1,81 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaUser, FaLock } from "react-icons/fa";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaUser, FaLock, FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const Signin = () => {
+  const navigate = useNavigate();
+  const { login, googleLogin } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError(""); // Clear error on input change
   };
 
-  const handleSubmit = (e) => {
+  // Email/Password Sign-in
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("User signed in:", formData);
+    setError("");
+    setLoading(true);
+
+    try {
+      await login(formData.email, formData.password);
+      navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(
+        error.message || "Failed to sign in. Please check your credentials."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Google Sign-in
+  const handleGoogleSignIn = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const googleProvider = new GoogleAuthProvider();
+      await googleLogin(googleProvider);
+      navigate("/");
+    } catch (error) {
+      console.error("Google login failed:", error);
+      setError("Google sign-in failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // GitHub Sign-in
+  const handleGithubSignIn = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const githubProvider = new GithubAuthProvider();
+      await googleLogin(githubProvider); // Using googleLogin function for any provider
+      navigate("/");
+    } catch (error) {
+      console.error("GitHub login failed:", error);
+      setError("GitHub sign-in failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="w-full flex justify-center items-center min-h-[80vh] ">
+    <div className="w-full flex justify-center items-center min-h-[80vh]">
       <div className="bg-white rounded-2xl p-10 w-[90%] max-w-[500px] shadow-2xl">
         <h1
           className="text-[#FF616B] text-4xl text-center mb-10"
@@ -27,6 +83,13 @@ const Signin = () => {
         >
           Sign In
         </h1>
+
+        {/* Error Message */}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
@@ -38,6 +101,7 @@ const Signin = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
           </div>
@@ -51,34 +115,56 @@ const Signin = () => {
               value={formData.password}
               onChange={handleChange}
               required
+              disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-[#FBC270] text-[#00000088] shadow-md font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer"
+            disabled={loading}
+            className="bg-[#FBC270] text-[#00000088] shadow-md font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Sign In
+            {loading ? "Signing In..." : "Sign In"}
           </button>
         </form>
 
+        {/* Divider */}
+        <div className="flex items-center my-6">
+          <div className="flex-1 h-[1px] bg-gray-300"></div>
+          <p className="px-4 text-gray-500 text-sm">Or sign in with</p>
+          <div className="flex-1 h-[1px] bg-gray-300"></div>
+        </div>
+
+        {/* Social Auth Buttons */}
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+            className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
+          >
+            <FaGoogle className="text-red-500" />
+            <p className="text-black">Google</p>
+          </button>
+
+          <button
+            onClick={handleGithubSignIn}
+            disabled={loading}
+            className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
+          >
+            <FaGithub className="text-gray-700" />
+            <p className="text-black">Github</p>
+          </button>
+        </div>
+
         <div className="text-center mt-6 text-gray-600">
           <p>
-            Don’t have an account?{" "}
+            Don't have an account?{" "}
             <Link
               to="/signup"
               className="text-[#FF616B] font-semibold hover:underline"
             >
               Create one
-            </Link>
-          </p>
-          <p className="mt-2">
-            <Link
-              to="/forgot-password"
-              className="text-[#4178a1] hover:underline"
-            >
-              Forgot password?
             </Link>
           </p>
         </div>

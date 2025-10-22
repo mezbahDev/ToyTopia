@@ -1,24 +1,101 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { register, googleLogin } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError(""); // Clear error on input change
   };
 
-  const handleSubmit = (e) => {
+  // Email/Password Sign-up
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/login");
+    const { fullName, email, password, confirmPassword } = formData;
+
+    // Validation
+    if (password !== confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+
+    setError("");
+    setLoading(true);
+
+    try {
+      await register(email, password, fullName, "");
+      navigate("/");
+    } catch (error) {
+      console.error("Signup error:", error);
+      let errorMessage = "Failed to create account. Please try again.";
+
+      if (error.code === "auth/email-already-in-use") {
+        errorMessage =
+          "This email is already registered. Please sign in instead.";
+      } else if (error.code === "auth/weak-password") {
+        errorMessage = "Password is too weak. Use at least 6 characters.";
+      } else if (error.code === "auth/invalid-email") {
+        errorMessage = "Invalid email address.";
+      }
+
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Google Sign-up
+  const handleGoogleSignUp = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const googleProvider = new GoogleAuthProvider();
+      await googleLogin(googleProvider);
+      navigate("/");
+    } catch (error) {
+      console.error("Google login failed:", error);
+      setError("Google sign-up failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // GitHub Sign-up
+  const handleGithubSignUp = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const githubProvider = new GithubAuthProvider();
+      await googleLogin(githubProvider);
+      navigate("/");
+    } catch (error) {
+      console.error("GitHub login failed:", error);
+      setError("GitHub sign-up failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -31,6 +108,14 @@ const SignUp = () => {
           Create an Account
         </h2>
 
+        {/* Error Message */}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
+
+        {/* Email/Password Signup */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaUser className="text-gray-400 text-xl" />
@@ -41,6 +126,7 @@ const SignUp = () => {
               value={formData.fullName}
               onChange={handleChange}
               required
+              disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
           </div>
@@ -54,6 +140,7 @@ const SignUp = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
           </div>
@@ -63,10 +150,11 @@ const SignUp = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password (min 6 characters)"
               value={formData.password}
               onChange={handleChange}
               required
+              disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
           </div>
@@ -80,18 +168,49 @@ const SignUp = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
+              disabled={loading}
               className="outline-none flex-1 bg-transparent text-gray-700"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-[#FBC270] shadow-md text-gray-700 font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer"
+            disabled={loading}
+            className="bg-[#FBC270] shadow-md text-gray-700 font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Sign Up
+            {loading ? "Creating Account..." : "Sign Up"}
           </button>
         </form>
 
+        {/* Divider */}
+        <div className="flex items-center my-6">
+          <div className="flex-1 h-[1px] bg-gray-300"></div>
+          <p className="px-4 text-gray-500 text-sm">Or sign up with</p>
+          <div className="flex-1 h-[1px] bg-gray-300"></div>
+        </div>
+
+        {/* Social Auth Buttons */}
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={handleGoogleSignUp}
+            disabled={loading}
+            className="flex items-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
+          >
+            <FaGoogle className="text-red-500" />
+            Google
+          </button>
+
+          <button
+            onClick={handleGithubSignUp}
+            disabled={loading}
+            className="flex items-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
+          >
+            <FaGithub className="text-gray-700" />
+            GitHub
+          </button>
+        </div>
+
+        {/* Redirect to Signin */}
         <div className="text-center mt-6 text-gray-600">
           <p>
             Already have an account?{" "}
