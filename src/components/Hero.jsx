@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import banner1 from "../../public/assets/hero-banner1.png";
 import banner2 from "../../public/assets/hero-banner2.png";
 import banner3 from "../../public/assets/hero-banner3.png";
+import { useNavigate } from "react-router";
 
 const banners = [
   {
     id: 1,
+    toyId: 21,
     image: banner1,
     title: "Captain Bubble’s Boat Brigade",
     description:
@@ -14,6 +16,7 @@ const banners = [
   },
   {
     id: 2,
+    toyId: 23,
     image: banner2,
     title: "Mr. Snuggle’s Teddy Pals",
     description:
@@ -22,6 +25,7 @@ const banners = [
   },
   {
     id: 3,
+    toyId: 22,
     image: banner3,
     title: "Zoom-Zoom Racer Squad",
     description:
@@ -32,11 +36,18 @@ const banners = [
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % banners.length);
-    }, 10000);
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
+
+  const handleShopNow = (toyId) => {
+    navigate(`toys/${toyId}`);
+  };
 
   return (
     <div className="relative w-full overflow-hidden rounded-xl bg-[#C1E5FF] mt-[-60px]">
@@ -65,7 +76,10 @@ const Hero = () => {
               {banner.title}
             </h1>
             <p className="mb-6 text-2xl text-[#646464]">{banner.description}</p>
-            <button className="bg-[#FBC270] text-[#00000088] px-6 py-3 font-semibold shadow-md rounded-full hover:bg-[#4178a1] transition-colors hover:text-white cursor-pointer">
+            <button
+              onClick={() => handleShopNow(banner.toyId)}
+              className="bg-[#FBC270] text-[#00000088] px-6 py-3 font-semibold shadow-md rounded-full hover:bg-[#4178a1] transition-colors hover:text-white cursor-pointer"
+            >
               Shop Now
             </button>
           </div>
