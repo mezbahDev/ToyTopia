@@ -1,34 +1,17 @@
+// HomeLayout.jsx
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
-import Hero from "../components/Hero";
-import Guarrenty from "../components/Guarrenty";
-import TrendyToys from "../components/TrendyToys";
+import Footer from "../components/Footer";
 
 const HomeLayout = () => {
-  const location = useLocation();
-
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full pt-[80px]">
       <Header />
-
-      {location.pathname === "/" && (
-        <>
-          <Hero />
-          <Guarrenty />
-          <TrendyToys />
-        </>
-      )}
-
-      {location.pathname !== "/" && (
-        <main className="flex flex-col items-center my-10 gap-20 w-full">
-          <Outlet />
-        </main>
-      )}
-
-      <footer className="w-full text-center py-5 border-t mt-10">
-        &copy; 2025 ToyTopia. All Rights Reserved.
-      </footer>
+      <main className="flex flex-col items-center my-10 gap-20 w-full">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 };

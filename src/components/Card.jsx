@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ toy }) => {
   return (
-    <div className="bg-white p-4 flex flex-col justify-between h-full gap-3 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+    <div className="bg-white p-4 flex flex-col justify-between h-full gap-3 rounded-2xl shadow-lg hover:shadow-lg transition-shadow">
       <div className="bg-[#FEEEC1] rounded-2xl overflow-hidden flex justify-center items-center">
         <img
           src={toy.pictureURL}
@@ -29,7 +29,7 @@ const Card = ({ toy }) => {
 
       <p className="text-[18px] text-black">${toy.price}</p>
 
-      <button className="w-full bg-[#FBC270] p-2 rounded-2xl text-white font-semibold text-[20px]">
+      <button className="w-full bg-[#FBC270] p-2 rounded-2xl text-[#00000088] cursor-pointer font-semibold text-[20px]  hover:bg-[#4178a1] transition-colors hover:text-white">
         Add to Cart
       </button>
     </div>

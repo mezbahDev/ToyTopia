@@ -7,20 +7,26 @@ const banners = [
   {
     id: 1,
     image: banner1,
-    title: "this is boat set toy",
-    description: "plz buy it. or i will shot you",
+    title: "Captain Bubble’s Boat Brigade",
+    description:
+      "Float, splash and giggle — build tiny boats and sail them on imaginary oceans. Perfect for storytime adventures and puddle races!",
+    alt: "colorful toy boat set for imaginative play",
   },
   {
     id: 2,
     image: banner2,
-    title: "this is bear toy set",
-    description: "plz buy it. or i will shot you",
+    title: "Mr. Snuggle’s Teddy Pals",
+    description:
+      "Hug-ready teddy friends who love tea parties, nap-time stories and secret handshakes. Soft, cuddly and always ready for a cuddle!",
+    alt: "soft teddy bear toy for cuddles and pretend play",
   },
   {
     id: 3,
     image: banner3,
-    title: "this is car set toy",
-    description: "plz buy it. or i will shot you",
+    title: "Zoom-Zoom Racer Squad",
+    description:
+      "Vroom into playtime with tiny cars and twisty tracks — build circuits, race siblings, and invent your own finish-line celebrations!",
+    alt: "mini racing cars and track set for action-packed play",
   },
 ];
 
@@ -33,7 +39,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden rounded-xl bg-[#C1E5FF] mt-[-60px]">
       {banners.map((banner, index) => (
         <div
           key={banner.id}
@@ -43,20 +49,23 @@ const Hero = () => {
               : "translate-x-full opacity-0 absolute top-0 left-0"
           }`}
         >
-          {/* Image */}
           <div className="md:w-1/2 w-full">
             <img
               src={banner.image}
-              alt={banner.title}
-              className="w-full h-auto object-cover"
+              alt={banner.alt}
+              className="w-full h-auto object-cover rounded-b-xl"
             />
           </div>
 
-          {/* Text */}
-          <div className="md:w-1/2 w-full p-6 text-center md:text-left">
-            <h1 className="text-4xl font-bold mb-4">{banner.title}</h1>
-            <p className="mb-6 text-lg">{banner.description}</p>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          <div className="flex flex-col gap-5 justify-center items-center text-center w-1/2 px-[100px]">
+            <h1
+              className="text-[60px] font-semibold mb-4 text-[#000000]"
+              style={{ fontFamily: "Fredoka One" }}
+            >
+              {banner.title}
+            </h1>
+            <p className="mb-6 text-2xl text-[#646464]">{banner.description}</p>
+            <button className="bg-[#FBC270] text-[#00000088] px-6 py-3 font-semibold rounded-full hover:bg-[#4178a1] transition-colors hover:text-white cursor-pointer">
               Shop Now
             </button>
           </div>
