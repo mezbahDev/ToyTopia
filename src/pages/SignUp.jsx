@@ -189,7 +189,7 @@ const SignUp = () => {
             className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
           >
             <FaGoogle className="text-red-500" />
-            Google
+            <p className="text-black">Google</p>
           </button>
 
           <button
@@ -198,7 +198,7 @@ const SignUp = () => {
             className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
           >
             <FaGithub className="text-gray-700" />
-            GitHub
+            <p className="text-black">Github</p>
           </button>
         </div>
 
