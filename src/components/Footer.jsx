@@ -68,7 +68,7 @@ const Footer = () => {
           />
         </div>
 
-        <button className="w-7/12 bg-[#FBC270] py-3 cursor-pointer rounded-full text-white font-semibold text-[20px] hover:bg-[#4178a1] transition-colors">
+        <button className="w-7/12 bg-[#FBC270] py-3 cursor-pointer rounded-full text-[#00000088] font-semibold text-[20px] hover:bg-[#4178a1] hover:text-white transition-colors">
           Subscribe
         </button>
 

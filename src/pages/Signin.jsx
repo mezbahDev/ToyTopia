@@ -19,8 +19,8 @@ const Signin = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center min-h-[80vh]">
-      <div className="bg-white rounded-2xl shadow-2xl p-10 w-[90%] max-w-[500px]">
+    <div className="w-full flex justify-center items-center min-h-[80vh] ">
+      <div className="bg-white rounded-2xl p-10 w-[90%] max-w-[500px] shadow-2xl">
         <h1
           className="text-[#FF616B] text-4xl text-center mb-10"
           style={{ fontFamily: "Fredoka One" }}
@@ -29,7 +29,6 @@ const Signin = () => {
         </h1>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          {/* Email */}
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaUser className="text-gray-400 text-xl" />
             <input
@@ -43,7 +42,6 @@ const Signin = () => {
             />
           </div>
 
-          {/* Password */}
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaLock className="text-gray-400 text-xl" />
             <input
@@ -57,16 +55,14 @@ const Signin = () => {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-[#FBC270] text-[#00000088] font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors"
+            className="bg-[#FBC270] text-[#00000088] font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer"
           >
             Sign In
           </button>
         </form>
 
-        {/* Extra Links */}
         <div className="text-center mt-6 text-gray-600">
           <p>
             Don’t have an account?{" "}
