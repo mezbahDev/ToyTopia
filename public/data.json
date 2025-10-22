@@ -7,7 +7,7 @@
     "price": 49.99,
     "rating": 4.7,
     "availableQuantity": 75,
-    "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving.",
+    "description": "Become a hero with the Lego Fire Fighter Set! Includes a fire truck, fire station, and mini-figures. Kids can build, role-play, and save the day in imaginative firefighting adventures. Encourages problem-solving, creativity, and teamwork.",
     "pictureURL": "../public/assets/lego.webp",
     "subCategory": "Building Blocks"
   },
@@ -19,7 +19,7 @@
     "price": 34.99,
     "rating": 4.5,
     "availableQuantity": 50,
-    "description": "A colorful baby gym to stimulate baby's senses and encourage early movement.",
+    "description": "Join Buzz Lightyear on an out-of-this-world adventure! This Buzz Lightyear action figure brings the beloved character to life with incredible detail and interactive features. Kids can imagine themselves as space rangers, exploring distant planets and battling evil forces alongside Buzz. With his voice command, laser action, and posable joints, Buzz Lightyear provides endless fun and imaginative play for Toy Story fans of all ages.",
     "pictureURL": "../public/assets/buzz.png",
     "subCategory": "Infant Toys"
   },
@@ -31,7 +31,7 @@
     "price": 199.99,
     "rating": 4.8,
     "availableQuantity": 30,
-    "description": "A multi-level Barbie Dreamhouse with accessories for endless imaginative play.",
+    "description": "Unleash creativity with the Creative Blocks set. Build towers, castles, and imaginative structures. Vibrant colors and multiple shapes enhance fine motor skills, spatial reasoning, and imaginative play. Ideal for solo or collaborative fun.",
     "pictureURL": "../public/assets/creativeBlocks.png",
     "subCategory": "Dolls & Accessories"
   },
@@ -43,7 +43,7 @@
     "price": 59.99,
     "rating": 4.6,
     "availableQuantity": 60,
-    "description": "Exciting Hot Wheels track set for car racing enthusiasts.",
+    "description": "Bring home Bullseye, Woody's loyal horse, as a soft and cuddly plush toy. Perfect for bedtime snuggles or recreating Toy Story adventures. Encourages imaginative play and storytelling, and is safe for kids of all ages.",
     "pictureURL": "../public/assets/bullseye.png",
     "subCategory": "Vehicles"
   },
@@ -55,7 +55,7 @@
     "price": 24.99,
     "rating": 4.4,
     "availableQuantity": 80,
-    "description": "Encourage creativity with this Play-Doh set including molds and colors.",
+    "description": "Adorable My Melody plush for endless cuddles and play. Soft, durable, and safe for children. Ideal for imaginative play, storytelling, or as a comforting bedtime companion. Perfect for fans of cute and collectible plush toys.",
     "pictureURL": "../public/assets/melody.png",
     "subCategory": "Arts & Crafts"
   },
@@ -67,7 +67,7 @@
     "price": 79.99,
     "rating": 4.5,
     "availableQuantity": 40,
-    "description": "Interactive robotic puppy that responds to touch and sound.",
+    "description": "Meet Huggable Friends, interactive robotic puppies that respond to touch and sound. Play, cuddle, and teach tricks while developing empathy and care skills. Great for tech-savvy kids who love pets and interactive learning.",
     "pictureURL": "../public/assets/Huggable.png",
     "subCategory": "Electronic Toys"
   },
@@ -79,7 +79,7 @@
     "price": 29.99,
     "rating": 4.7,
     "availableQuantity": 55,
-    "description": "Classic Monopoly board game for family game nights.",
+    "description": "Bring the roar of Rex to life with this collectible figurine. Perfect for Toy Story fans, imaginative play, and display. Encourages storytelling, creativity, and role-playing adventures.",
     "pictureURL": "../public/assets/rex.png",
     "subCategory": "Board Games"
   },
@@ -91,7 +91,7 @@
     "price": 39.99,
     "rating": 4.3,
     "availableQuantity": 70,
-    "description": "Nerf blaster for hours of fun and safe action-packed play.",
+    "description": "Soft and cuddly Fluffy Bear ready for hugs, adventures, and bedtime snuggles. Perfect for imaginative play, storytelling, and as a comforting companion for kids of all ages.",
     "pictureURL": "../public/assets/fluffy bear.png",
     "subCategory": "Action Toys"
   },
@@ -103,7 +103,7 @@
     "price": 19.99,
     "rating": 4.6,
     "availableQuantity": 65,
-    "description": "Educational wooden puzzles to enhance cognitive skills.",
+    "description": "Realistic Dump Truck toy for endless construction adventures. Kids can load, unload, and transport materials safely while improving motor skills and imaginative play.",
     "pictureURL": "../public/assets/catDump.png",
     "subCategory": "Educational"
   },
@@ -115,7 +115,7 @@
     "price": 129.99,
     "rating": 4.5,
     "availableQuantity": 25,
-    "description": "Remote-controlled drone with HD camera for aerial fun.",
+    "description": "Take flight with the RC Drone Quadcopter! Remote-controlled, equipped with HD camera for aerial exploration. Develops hand-eye coordination and provides hours of outdoor and indoor fun.",
     "pictureURL": "../public/assets/drone.jpg",
     "subCategory": "Electronic Toys"
   },
@@ -127,7 +127,7 @@
     "price": 44.99,
     "rating": 4.7,
     "availableQuantity": 50,
-    "description": "Classic wooden train set with tracks for imaginative play.",
+    "description": "Classic Wooden Train Set with tracks for building elaborate train routes. Encourages imaginative play, problem-solving, and fine motor skills. Perfect for solo or group play sessions.",
     "pictureURL": "../public/assets/train.avif",
     "subCategory": "Vehicles"
   },
@@ -139,7 +139,7 @@
     "price": 14.99,
     "rating": 4.8,
     "availableQuantity": 100,
-    "description": "Classic 3x3 puzzle cube to enhance problem-solving skills.",
+    "description": "Challenge young minds with this classic 3x3 Puzzle Cube. Enhances problem-solving, focus, and hand-eye coordination. Perfect for solo brain-training or friendly competitions.",
     "pictureURL": "../public/assets/cube.jpg",
     "subCategory": "Educational"
   },
@@ -151,7 +151,7 @@
     "price": 22.99,
     "rating": 4.5,
     "availableQuantity": 90,
-    "description": "Colorful Crayola set for endless creative coloring fun.",
+    "description": "Bring colors to life with the Crayola Coloring Set! Includes crayons, markers, and coloring sheets. Enhances creativity, fine motor skills, and hours of artistic fun for children of all ages.",
     "pictureURL": "../public/assets/coloring.webp",
     "subCategory": "Arts & Crafts"
   },
@@ -163,7 +163,7 @@
     "price": 59.99,
     "rating": 4.6,
     "availableQuantity": 45,
-    "description": "Interactive toy laptop to teach letters, numbers, and basic games.",
+    "description": "Interactive Learning Laptop from Fisher-Price teaches letters, numbers, and basic games. Encourages early learning, hand-eye coordination, and imaginative play. Safe and engaging for toddlers and preschoolers.",
     "pictureURL": "../public/assets/fisher.avif",
     "subCategory": "Educational"
   },
@@ -175,7 +175,7 @@
     "price": 79.99,
     "rating": 4.7,
     "availableQuantity": 35,
-    "description": "Realistic toy kitchen with utensils for imaginative cooking play.",
+    "description": "Become a mini chef with this realistic Toy Kitchen Set! Includes utensils, stove, and cookware for imaginative cooking play. Encourages creativity, role-playing, and social interaction.",
     "pictureURL": "../public/assets/kitcher.jpg",
     "subCategory": "Role Play"
   },
@@ -187,7 +187,7 @@
     "price": 24.99,
     "rating": 4.9,
     "availableQuantity": 120,
-    "description": "Soft and cuddly teddy bear for kids of all ages.",
+    "description": "Soft and cuddly Stuffed Teddy Bear perfect for hugs, comfort, and imaginative play. Encourages emotional development and is suitable for kids of all ages.",
     "pictureURL": "../public/assets/teddyBear.webp",
     "subCategory": "Stuffed Animals"
   },
@@ -199,7 +199,7 @@
     "price": 49.99,
     "rating": 4.4,
     "availableQuantity": 60,
-    "description": "Fast remote-controlled car with rechargeable battery.",
+    "description": "Fast and exciting Remote Control Car with rechargeable battery. Encourages hand-eye coordination, outdoor play, and competitive fun. Perfect for kids who love racing adventures.",
     "pictureURL": "../public/assets/racing car.webp",
     "subCategory": "Vehicles"
   },
@@ -211,7 +211,7 @@
     "price": 12.99,
     "rating": 4.6,
     "availableQuantity": 100,
-    "description": "Flash cards to help kids learn numbers, letters, and animals.",
+    "description": "Learn numbers, letters, and animals with these colorful Educational Flash Cards. Enhances memory, recognition, and early learning skills. Fun and interactive for preschoolers and toddlers.",
     "pictureURL": "../public/assets/flash cards.jpg",
     "subCategory": "Educational"
   },
@@ -223,7 +223,7 @@
     "price": 29.99,
     "rating": 4.5,
     "availableQuantity": 70,
-    "description": "Colorful wooden blocks to encourage stacking and creativity.",
+    "description": "Colorful Wooden Blocks Set encourages stacking, creativity, and problem-solving. Perfect for imaginative play, fine motor skill development, and collaborative building fun.",
     "pictureURL": "../public/assets/blockSet.gif",
     "subCategory": "Building Blocks"
   },
@@ -235,7 +235,7 @@
     "price": 34.99,
     "rating": 4.6,
     "availableQuantity": 50,
-    "description": "Mess-free magnetic drawing board to let kids draw and erase endlessly.",
+    "description": "Mess-free Magnetic Drawing Board allows kids to draw, erase, and recreate endlessly. Enhances creativity, fine motor skills, and artistic expression in a fun, safe way.",
     "pictureURL": "../public/assets/draw.jpg",
     "subCategory": "Arts & Crafts"
   },
@@ -247,7 +247,7 @@
     "price": 29.99,
     "rating": 4.5,
     "availableQuantity": 40,
-    "description": "Miniature boat set perfect for water play and imagination.",
+    "description": "Mini Boat Set perfect for water play and imaginative adventures. Encourages creativity, storytelling, and outdoor fun in a safe and interactive way.",
     "pictureURL": "../public/assets/hero-banner1.png",
     "subCategory": "Outdoor Toys"
   },
@@ -259,7 +259,7 @@
     "price": 39.99,
     "rating": 4.7,
     "availableQuantity": 35,
-    "description": "Race your cars and create endless fun tracks with this car set.",
+    "description": "Race and play with this Car Set Toy! Includes multiple cars and tracks for endless fun. Encourages creativity, coordination, and competitive play for kids who love vehicles.",
     "pictureURL": "../public/assets/hero-banner3.png",
     "subCategory": "Vehicles & Cars"
   },
@@ -271,7 +271,7 @@
     "price": 24.99,
     "rating": 4.8,
     "availableQuantity": 60,
-    "description": "Set of soft, huggable bears perfect for kids of all ages.",
+    "description": "Set of soft, huggable bears perfect for imaginative play, cuddles, and storytelling. Encourages creativity, emotional development, and safe play for kids of all ages.",
     "pictureURL": "../public/assets/hero-banner2.png",
     "subCategory": "Stuffed Animals"
   }
