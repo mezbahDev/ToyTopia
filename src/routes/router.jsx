@@ -7,6 +7,7 @@ import Signin from "../pages/Signin";
 import ShoppingCart from "../pages/ShoppingCart";
 import NotFound from "../pages/NotFound";
 import SignUp from "../pages/SignUp";
+import ToyDetails from "../pages/ToyDetails";
 
 const router = createBrowserRouter([
   {
@@ -16,9 +17,10 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/products", element: <Products /> },
       { path: "/aboutus", element: <AboutUs /> },
-      { path: "/login", element: <Signin /> },
+      { path: "/signin", element: <Signin /> },
       { path: "/cart", element: <ShoppingCart /> },
       { path: "/signup", element: <SignUp /> },
+      { path: "/toys/:id", element: <ToyDetails /> },
     ],
   },
   { path: "*", element: <NotFound /> },

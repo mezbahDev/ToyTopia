@@ -68,14 +68,14 @@ const Footer = () => {
           />
         </div>
 
-        <button className="w-7/12 bg-[#FBC270] py-3 cursor-pointer rounded-full text-[#00000088] font-semibold text-[20px] hover:bg-[#4178a1] hover:text-white transition-colors">
+        <button className="w-7/12 shadow-md bg-[#FBC270] py-3 cursor-pointer rounded-full text-[#00000088] font-semibold text-[20px] hover:bg-[#4178a1] hover:text-white transition-colors">
           Subscribe
         </button>
 
         <div className="flex items-center gap-4 mt-2 text-2xl text-white">
           <FiFacebook className="text-[30px] cursor-pointer hover:scale-[1.5]" />
           <FaInstagram className="text-[30px] cursor-pointer hover:scale-[1.5]" />
-          <RiTwitterXFill className="text-30px] cursor-pointer hover:scale-[1.5]" />
+          <RiTwitterXFill className="text-[30px] cursor-pointer hover:scale-[1.5]" />
         </div>
       </div>
 

@@ -56,7 +56,7 @@ const Products = () => {
           </p>
           <button
             onClick={() => navigate("/")}
-            className="bg-[#FBC270] py-3 px-6 rounded-full text-white font-semibold text-[20px] cursor-pointer hover:bg-[#4178a1] transition-colors text-lg"
+            className="bg-[#FBC270] py-3 px-6 shadow-md rounded-full text-white font-semibold text-[20px] cursor-pointer hover:bg-[#4178a1] transition-colors text-lg"
           >
             Back to Home
           </button>

@@ -32,11 +32,11 @@ const Header = () => {
 
       <div className="flex items-center gap-5">
         <Link to="/cart">
-          <MdShoppingCart className="text-4xl text-black cursor-pointer" />
+          <MdShoppingCart className="text-4xl text-black cursor-pointer" />{" "}
         </Link>
         <Link
-          to="/login"
-          className="bg-[#FBC270] py-3 px-6 rounded-full text-[#00000088] font-semibold cursor-pointer hover:bg-[#4178a1] transition-colors hover:text-white"
+          to="/signin"
+          className="bg-[#FBC270] py-3 px-6 rounded-full shadow-md text-[#00000088] font-semibold cursor-pointer hover:bg-[#4178a1] transition-colors hover:text-white"
         >
           Sign In
         </Link>

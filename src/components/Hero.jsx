@@ -65,7 +65,7 @@ const Hero = () => {
               {banner.title}
             </h1>
             <p className="mb-6 text-2xl text-[#646464]">{banner.description}</p>
-            <button className="bg-[#FBC270] text-[#00000088] px-6 py-3 font-semibold rounded-full hover:bg-[#4178a1] transition-colors hover:text-white cursor-pointer">
+            <button className="bg-[#FBC270] text-[#00000088] px-6 py-3 font-semibold shadow-md rounded-full hover:bg-[#4178a1] transition-colors hover:text-white cursor-pointer">
               Shop Now
             </button>
           </div>
