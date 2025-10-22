@@ -1,5 +1,4 @@
 import React from "react";
-
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router";

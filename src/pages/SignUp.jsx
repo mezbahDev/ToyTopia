@@ -20,15 +20,13 @@ const SignUp = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError(""); // Clear error on input change
+    setError("");
   };
 
-  // Email/Password Sign-up
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { fullName, email, password, confirmPassword } = formData;
 
-    // Validation
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
@@ -64,7 +62,6 @@ const SignUp = () => {
     }
   };
 
-  // Google Sign-up
   const handleGoogleSignUp = async () => {
     setError("");
     setLoading(true);
@@ -81,7 +78,6 @@ const SignUp = () => {
     }
   };
 
-  // GitHub Sign-up
   const handleGithubSignUp = async () => {
     setError("");
     setLoading(true);
@@ -108,14 +104,12 @@ const SignUp = () => {
           Create an Account
         </h2>
 
-        {/* Error Message */}
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
             {error}
           </div>
         )}
 
-        {/* Email/Password Signup */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaUser className="text-gray-400 text-xl" />
@@ -182,19 +176,17 @@ const SignUp = () => {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center my-6">
           <div className="flex-1 h-[1px] bg-gray-300"></div>
           <p className="px-4 text-gray-500 text-sm">Or sign up with</p>
           <div className="flex-1 h-[1px] bg-gray-300"></div>
         </div>
 
-        {/* Social Auth Buttons */}
         <div className="flex justify-center gap-4">
           <button
             onClick={handleGoogleSignUp}
             disabled={loading}
-            className="flex items-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
+            className="flex items-center gap-2 px-5 py-3 shadow-xl rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
           >
             <FaGoogle className="text-red-500" />
             Google
@@ -203,14 +195,13 @@ const SignUp = () => {
           <button
             onClick={handleGithubSignUp}
             disabled={loading}
-            className="flex items-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
+            className="flex items-center gap-2 px-5 py-3 shadow-xl rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
           >
             <FaGithub className="text-gray-700" />
             GitHub
           </button>
         </div>
 
-        {/* Redirect to Signin */}
         <div className="text-center mt-6 text-gray-600">
           <p>
             Already have an account?{" "}

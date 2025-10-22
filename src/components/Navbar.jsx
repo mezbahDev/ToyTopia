@@ -3,7 +3,7 @@ import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
-const Header = () => {
+const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
@@ -48,7 +48,7 @@ const Header = () => {
 
         {user ? (
           <div className="flex items-center gap-4">
-            {/* User Profile */}
+  
             <div className="flex items-center gap-2">
               {user.photoURL ? (
                 <img
@@ -66,7 +66,7 @@ const Header = () => {
               </span>
             </div>
 
-            {/* Logout Button */}
+
             <button
               onClick={handleLogout}
               className="bg-[#FF616B] py-3 px-6 rounded-full shadow-md text-white font-semibold cursor-pointer hover:bg-[#ff4757] transition-colors"
@@ -87,4 +87,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

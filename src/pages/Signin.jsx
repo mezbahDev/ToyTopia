@@ -18,10 +18,10 @@ const Signin = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError(""); // Clear error on input change
+    setError(""); 
   };
 
-  // Email/Password Sign-in
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -40,7 +40,7 @@ const Signin = () => {
     }
   };
 
-  // Google Sign-in
+
   const handleGoogleSignIn = async () => {
     setError("");
     setLoading(true);
@@ -57,14 +57,14 @@ const Signin = () => {
     }
   };
 
-  // GitHub Sign-in
+
   const handleGithubSignIn = async () => {
     setError("");
     setLoading(true);
 
     try {
       const githubProvider = new GithubAuthProvider();
-      await googleLogin(githubProvider); // Using googleLogin function for any provider
+      await googleLogin(githubProvider);
       navigate("/");
     } catch (error) {
       console.error("GitHub login failed:", error);
@@ -84,7 +84,7 @@ const Signin = () => {
           Sign In
         </h1>
 
-        {/* Error Message */}
+
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
             {error}
@@ -129,19 +129,18 @@ const Signin = () => {
           </button>
         </form>
 
-        {/* Divider */}
+
         <div className="flex items-center my-6">
           <div className="flex-1 h-[1px] bg-gray-300"></div>
           <p className="px-4 text-gray-500 text-sm">Or sign in with</p>
           <div className="flex-1 h-[1px] bg-gray-300"></div>
         </div>
 
-        {/* Social Auth Buttons */}
         <div className="flex justify-center gap-4">
           <button
             onClick={handleGoogleSignIn}
             disabled={loading}
-            className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
+            className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
           >
             <FaGoogle className="text-red-500" />
             <p className="text-black">Google</p>
@@ -150,7 +149,7 @@ const Signin = () => {
           <button
             onClick={handleGithubSignIn}
             disabled={loading}
-            className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
+            className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
           >
             <FaGithub className="text-gray-700" />
             <p className="text-black">Github</p>
