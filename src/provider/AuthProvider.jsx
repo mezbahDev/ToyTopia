@@ -8,6 +8,7 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
@@ -24,30 +25,63 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  const login = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password);
+  const login = async (email, password) => {
+    setLoading(true);
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      setUser(result.user);
+      return result.user;
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const register = (email, password, displayName, photoURL) =>
-    createUserWithEmailAndPassword(auth, email, password).then((result) =>
-      updateProfile(result.user, { displayName, photoURL })
-    );
+  const register = async (email, password, displayName, photoURL) => {
+    setLoading(true);
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile(result.user, { displayName, photoURL });
+      setUser(result.user);
+      return result.user;
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const googleLogin = async () => {
-    const provider = new GoogleAuthProvider();
+  const socialLogin = async (providerName) => {
+    setLoading(true);
+    let provider;
+    if (providerName === "google") provider = new GoogleAuthProvider();
+    if (providerName === "github") provider = new GithubAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
       return result.user;
     } catch (error) {
       if (error.code === "auth/account-exists-with-different-credential") {
         throw new Error(
-          "An account already exists with the same email but different sign-in method. Please use the original method."
+          "An account already exists with this email but different sign-in method."
         );
       }
       throw error;
+    } finally {
+      setLoading(false);
     }
   };
 
-  const logout = () => signOut(auth);
+  const logout = async () => {
+    setLoading(true);
+    try {
+      await signOut(auth);
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -57,7 +91,7 @@ const AuthProvider = ({ children }) => {
         setUser,
         login,
         register,
-        googleLogin,
+        socialLogin,
         logout,
       }}
     >

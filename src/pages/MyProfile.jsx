@@ -55,10 +55,12 @@ const MyProfile = () => {
     try {
       const currentUser = auth.currentUser;
       if (!currentUser) throw new Error("No authenticated user.");
+
       await updateProfile(currentUser, {
         displayName: name.trim(),
         photoURL: photo || null,
       });
+
       if (password) {
         const credential = EmailAuthProvider.credential(
           currentUser.email,
@@ -67,7 +69,9 @@ const MyProfile = () => {
         await reauthenticateWithCredential(currentUser, credential);
         await updatePassword(currentUser, password);
       }
+
       toast.success("Profile updated successfully!");
+      navigate("/");
     } catch (err) {
       console.error(err);
       toast.error(err.message || "Update failed");

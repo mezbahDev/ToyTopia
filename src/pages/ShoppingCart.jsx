@@ -55,8 +55,8 @@ const ShoppingCart = () => {
         ))}
       </div>
 
-      <div className="w-full md:w-64 bg-white p-6 rounded-3xl shadow-lg flex flex-col justify-between">
-        <div className="flex flex-col gap-4 mb-4">
+      <div className="w-full md:w-64 bg-white p-6 rounded-3xl shadow-lg flex flex-col justify-between h-[250px]">
+        <div className="flex flex-col gap-4 mb-4 overflow-y-auto">
           <h2 className="font-bold text-xl">Cart Summary</h2>
           <p>
             Total Items:{" "}
