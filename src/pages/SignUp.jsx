@@ -177,16 +177,16 @@ const SignUp = () => {
         </form>
 
         <div className="flex items-center my-6">
-          <div className="flex-1 h-[1px] bg-gray-300"></div>
+          <div className="flex-1 bg-gray-300"></div>
           <p className="px-4 text-gray-500 text-sm">Or sign up with</p>
-          <div className="flex-1 h-[1px] bg-gray-300"></div>
+          <div className="flex-1  bg-gray-300"></div>
         </div>
 
         <div className="flex justify-center gap-4">
           <button
             onClick={handleGoogleSignUp}
             disabled={loading}
-            className="flex items-center gap-2 px-5 py-3 shadow-xl rounded-full hover:bg-[#DB4437] hover:text-white transition disabled:opacity-50"
+            className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
           >
             <FaGoogle className="text-red-500" />
             Google
@@ -195,7 +195,7 @@ const SignUp = () => {
           <button
             onClick={handleGithubSignUp}
             disabled={loading}
-            className="flex items-center gap-2 px-5 py-3 shadow-xl rounded-full hover:bg-[#24292E] hover:text-white transition disabled:opacity-50"
+            className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
           >
             <FaGithub className="text-gray-700" />
             GitHub
