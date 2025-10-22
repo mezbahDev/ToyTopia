@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaLock, FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2"; 
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -18,22 +19,33 @@ const Signin = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
     try {
       await login(formData.email, formData.password);
+      Swal.fire("Success", "Signed in successfully!", "success");
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
-      setError(
-        error.message || "Failed to sign in. Please check your credentials."
-      );
+      if (error.code === "auth/user-not-found") {
+        Swal.fire(
+          "Error",
+          "No account found with this email. Please sign up first.",
+          "error"
+        );
+      } else if (error.code === "auth/wrong-password") {
+        Swal.fire("Error", "Incorrect password. Try again.", "error");
+      } else {
+        Swal.fire(
+          "Error",
+          "Failed to sign in. Please check your credentials.",
+          "error"
+        );
+      }
     } finally {
       setLoading(false);
     }
@@ -42,7 +54,6 @@ const Signin = () => {
   const handleGoogleSignIn = async () => {
     setError("");
     setLoading(true);
-
     try {
       const googleProvider = new GoogleAuthProvider();
       await googleLogin(googleProvider);
@@ -98,7 +109,7 @@ const Signin = () => {
               onChange={handleChange}
               required
               disabled={loading}
-              className="outline-none flex-1 text-gray-700"
+              className="outline-none flex-1 b text-gray-700"
             />
           </div>
 

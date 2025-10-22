@@ -1,16 +1,23 @@
 import React, { useContext } from "react";
 import { MdShoppingCart } from "react-icons/md";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await logout();
     } catch (error) {
       console.error("Logout error:", error);
+    }
+  };
+
+  const goToProfile = () => {
+    if (user) {
+      navigate("/myprofile");
     }
   };
 
@@ -23,7 +30,6 @@ const Navbar = () => {
         <Link to="/">ToyTopia</Link>
       </h1>
 
-      {/* Navigation Links */}
       <ul className="list-none text-[#464D4D] flex gap-10 font-bold">
         <li>
           <NavLink
@@ -47,17 +53,16 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to="/myprofile"
+            to="/aboutus"
             className={({ isActive }) =>
               isActive ? "text-[#FF616B] font-bold" : "hover:text-[#1f1f1f]"
             }
           >
-            My Profile
+            About Us
           </NavLink>
         </li>
       </ul>
 
-      {/* Cart + User Actions */}
       <div className="flex items-center gap-5">
         <Link to="/cart">
           <MdShoppingCart className="text-4xl text-black cursor-pointer" />
@@ -65,30 +70,31 @@ const Navbar = () => {
 
         {user ? (
           <div className="flex items-center gap-4">
-            {/* User Image */}
-            <div className="relative group" title={user.displayName || "User"}>
+            <div
+              className="relative group cursor-pointer"
+              title={user.displayName || "User"}
+              onClick={goToProfile}
+            >
               {user.photoURL ? (
                 <img
                   src={user.photoURL}
                   alt={user.displayName || "User"}
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#FBC270] cursor-pointer"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-[#FBC270]"
                 />
               ) : (
-                <div className="w-10 h-10 rounded-full bg-[#FBC270] flex items-center justify-center text-white font-bold cursor-pointer">
+                <div className="w-10 h-10 rounded-full bg-[#FBC270] flex items-center justify-center text-white font-bold">
                   {user.displayName ? user.displayName[0].toUpperCase() : "U"}
                 </div>
               )}
 
-              {/* Tooltip */}
               <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                 {user.displayName || "User"}
               </span>
             </div>
 
-            {/* Logout Button */}
             <button
               onClick={handleLogout}
-              className="bg-[#FF616B] py-2 px-5 rounded-full shadow-md text-white font-semibold cursor-pointer hover:bg-[#ff4757] transition-colors"
+              className="bg-[#FF616B] py-2 px-5 rounded-full cursor-pointer shadow-md text-white font-semibold hover:bg-[#ff4757] transition-colors"
             >
               Logout
             </button>
@@ -96,7 +102,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/signin"
-            className="bg-[#FBC270] py-2 px-5 rounded-full shadow-md text-[#00000088] font-semibold cursor-pointer hover:bg-[#4178a1] transition-colors hover:text-white"
+            className="bg-[#FBC270] py-2 px-5 rounded-full shadow-md text-[#00000088] font-semibold hover:bg-[#4178a1] transition-colors hover:text-white"
           >
             Sign In
           </Link>

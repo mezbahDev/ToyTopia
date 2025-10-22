@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser, FaEnvelope, FaLock, FaGoogle, FaGithub } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
-import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -11,84 +11,105 @@ const SignUp = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    photoURL: "",
     password: "",
     confirmPassword: "",
   });
-  const [error, setError] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError("");
+  };
+
+  const validatePassword = (password) => {
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+    const hasLength = password.length >= 6;
+    if (!hasUpper) {
+      Swal.fire(
+        "Error",
+        "Password must have at least one uppercase letter.",
+        "error"
+      );
+      return false;
+    }
+    if (!hasLower) {
+      Swal.fire(
+        "Error",
+        "Password must have at least one lowercase letter.",
+        "error"
+      );
+      return false;
+    }
+    if (!hasLength) {
+      Swal.fire(
+        "Error",
+        "Password must be at least 6 characters long.",
+        "error"
+      );
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { fullName, email, password, confirmPassword } = formData;
+    const { fullName, email, password, confirmPassword, photoURL } = formData;
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match!");
+      Swal.fire("Error", "Passwords do not match!", "error");
       return;
     }
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters long");
-      return;
-    }
+    if (!validatePassword(password)) return;
 
-    setError("");
     setLoading(true);
-
     try {
-      await register(email, password, fullName, "");
+      await register(email, password, fullName, photoURL);
+      Swal.fire("Success", "Account created successfully!", "success");
       navigate("/");
-    } catch (error) {
-      console.error("Signup error:", error);
-      let errorMessage = "Failed to create account. Please try again.";
-
-      if (error.code === "auth/email-already-in-use") {
-        errorMessage =
-          "This email is already registered. Please sign in instead.";
-      } else if (error.code === "auth/weak-password") {
-        errorMessage = "Password is too weak. Use at least 6 characters.";
-      } else if (error.code === "auth/invalid-email") {
-        errorMessage = "Invalid email address.";
+    } catch (err) {
+      console.error("Signup error:", err);
+      if (err.code === "auth/email-already-in-use") {
+        Swal.fire(
+          "Error",
+          "This email is already registered. Please sign in instead.",
+          "error"
+        );
+      } else {
+        Swal.fire(
+          "Error",
+          "Failed to create account. Please try again.",
+          "error"
+        );
       }
-
-      setError(errorMessage);
     } finally {
       setLoading(false);
     }
   };
 
   const handleGoogleSignUp = async () => {
-    setError("");
     setLoading(true);
-
     try {
-      const googleProvider = new GoogleAuthProvider();
-      await googleLogin(googleProvider);
+      await googleLogin();
+      Swal.fire("Success", "Signed up successfully with Google!", "success");
       navigate("/");
-    } catch (error) {
-      console.error("Google login failed:", error);
-      setError("Google sign-up failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGithubSignUp = async () => {
-    setError("");
-    setLoading(true);
-
-    try {
-      const githubProvider = new GithubAuthProvider();
-      await googleLogin(githubProvider);
-      navigate("/");
-    } catch (error) {
-      console.error("GitHub login failed:", error);
-      setError("GitHub sign-up failed. Please try again.");
+    } catch (err) {
+      console.error("Google signup failed:", err);
+      if (
+        err.code === "auth/email-already-in-use" ||
+        err.code === "auth/account-exists-with-different-credential"
+      ) {
+        Swal.fire(
+          "Error",
+          "An account already exists with this email. Please sign in instead.",
+          "error"
+        );
+      } else {
+        Swal.fire("Error", "Google sign-up failed. Please try again.", "error");
+      }
     } finally {
       setLoading(false);
     }
@@ -103,12 +124,6 @@ const SignUp = () => {
         >
           Create an Account
         </h2>
-
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
-            {error}
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
@@ -140,11 +155,24 @@ const SignUp = () => {
           </div>
 
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
+            <FaUser className="text-gray-400 text-xl" />
+            <input
+              type="text"
+              name="photoURL"
+              placeholder="Photo URL (optional)"
+              value={formData.photoURL}
+              onChange={handleChange}
+              disabled={loading}
+              className="outline-none flex-1 bg-transparent text-gray-700"
+            />
+          </div>
+
+          <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaLock className="text-gray-400 text-xl" />
             <input
               type="password"
               name="password"
-              placeholder="Password (min 6 characters)"
+              placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
@@ -179,7 +207,7 @@ const SignUp = () => {
         <div className="flex items-center my-6">
           <div className="flex-1 bg-gray-300"></div>
           <p className="px-4 text-gray-500 text-sm">Or sign up with</p>
-          <div className="flex-1  bg-gray-300"></div>
+          <div className="flex-1 bg-gray-300"></div>
         </div>
 
         <div className="flex justify-center gap-4">
@@ -190,15 +218,6 @@ const SignUp = () => {
           >
             <FaGoogle className="text-red-500" />
             <p className="text-black">Google</p>
-          </button>
-
-          <button
-            onClick={handleGithubSignUp}
-            disabled={loading}
-            className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
-          >
-            <FaGithub className="text-gray-700" />
-            <p className="text-black">Github</p>
           </button>
         </div>
 
