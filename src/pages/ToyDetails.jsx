@@ -10,7 +10,7 @@ const ToyDetails = () => {
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(0);
 
-  const detailsRef = useRef(null); // Product Details section er ref
+  const detailsRef = useRef(null); 
 
   useEffect(() => {
     fetch("/data.json")
@@ -54,13 +54,11 @@ const ToyDetails = () => {
     }
   };
 
-  // 15 word short description
   const shortDescription =
     toy.description.split(" ").slice(0, 15).join(" ") + "...";
 
   return (
     <div className="flex flex-col items-center text-black px-20 w-10/12 mx-auto gap-20">
-      {/* Main Toy Info */}
       <div className="flex items-center gap-10 bg-white p-5 rounded-2xl mx-auto justify-center shadow-lg">
         <img
           src={toy.pictureURL}
@@ -71,7 +69,6 @@ const ToyDetails = () => {
         <div className="flex flex-col gap-5">
           <h2 className="text-4xl font-semibold">{toy.toyName}</h2>
 
-          {/* Short Description with See More */}
           <p className="text-[18px] text-gray-700">
             {shortDescription}{" "}
             <span
@@ -144,7 +141,6 @@ const ToyDetails = () => {
         </div>
       </div>
 
-      {/* Product Details Section */}
       <div
         ref={detailsRef}
         className="flex flex-col gap-15 items-center w-full"

@@ -20,7 +20,6 @@ const Products = () => {
 
   return (
     <div className="max-w-[1500px] mx-auto px-4 flex flex-col items-center">
-      {/* Search input */}
       <label className="relative block w-1/2 mb-4">
         <svg
           className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
