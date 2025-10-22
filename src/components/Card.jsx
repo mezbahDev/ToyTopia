@@ -1,13 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Card = ({ toy }) => {
+  const navigate = useNavigate();
+
   const shortDescription =
     toy.description.split(" ").slice(0, 15).join(" ") + "...";
 
+  const handleGoToDetails = () => {
+    navigate(`/toys/${toy.toyId}`); 
+  };
+
   return (
     <div className="bg-white p-4 flex flex-col justify-between h-full gap-3 rounded-2xl shadow-lg hover:shadow-lg transition-shadow">
-      <div className="bg-[#FEEEC1] rounded-2xl overflow-hidden flex justify-center items-center">
+      <div
+        className="bg-[#FEEEC1] rounded-2xl overflow-hidden flex justify-center items-center cursor-pointer"
+        onClick={handleGoToDetails}
+      >
         <img
           src={toy.pictureURL}
           alt={toy.toyName}
@@ -25,26 +34,27 @@ const Card = ({ toy }) => {
         </p>
       </div>
 
-      <Link
-        to={`/toys/${toy.toyId}`}
+      <p
+        onClick={handleGoToDetails} 
         className="font-semibold text-[20px] hover:text-[#559BD7] cursor-pointer text-black"
       >
         {toy.toyName}
-      </Link>
+      </p>
 
       <p className="text-[#54576B] text-[14px]">
         {shortDescription}{" "}
-        <Link
-          to={`/toys/${toy.toyId}`}
+        <span
+          onClick={handleGoToDetails}
           className="text-blue-500 cursor-pointer hover:underline"
         >
           See More
-        </Link>
+        </span>
       </p>
 
-      <p className="text-[18px] text-black">${toy.price}</p>
-
-      <button className="w-full bg-[#FBC270] p-2 rounded-2xl shadow-md text-[#00000088] cursor-pointer font-semibold text-[20px] hover:bg-[#4178a1] transition-colors hover:text-white">
+      <button
+        onClick={handleGoToDetails} 
+        className="w-full bg-[#FBC270] p-2 rounded-2xl shadow-md text-[#00000088] cursor-pointer font-semibold text-[20px] hover:bg-[#4178a1] transition-colors hover:text-white"
+      >
         Add to Cart
       </button>
     </div>
