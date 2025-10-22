@@ -88,7 +88,7 @@ const Signin = () => {
         )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
+          <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm bg-white focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaUser className="text-gray-400 text-xl" />
             <input
               type="email"
@@ -98,11 +98,11 @@ const Signin = () => {
               onChange={handleChange}
               required
               disabled={loading}
-              className="outline-none flex-1 bg-transparent text-gray-700"
+              className="outline-none flex-1 text-gray-700"
             />
           </div>
 
-          <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#FBC270]">
+          <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm bg-white focus-within:ring-2 focus-within:ring-[#FBC270]">
             <FaLock className="text-gray-400 text-xl" />
             <input
               type="password"

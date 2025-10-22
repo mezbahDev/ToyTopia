@@ -12,7 +12,7 @@ import {
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // এখানে setUser রাখুন
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,32 +24,24 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  const login = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
-  };
+  const login = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
 
   const register = (email, password, displayName, photoURL) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
       (result) => {
-        return updateProfile(result.user, {
-          displayName,
-          photoURL,
-        });
+        return updateProfile(result.user, { displayName, photoURL });
       }
     );
   };
 
-  const googleLogin = (provider) => {
-    return signInWithPopup(auth, provider);
-  };
+  const googleLogin = (provider) => signInWithPopup(auth, provider);
 
-  const logout = () => {
-    return signOut(auth);
-  };
+  const logout = () => signOut(auth);
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, login, register, googleLogin, logout }}
+      value={{ user, setUser, loading, login, register, googleLogin, logout }}
     >
       {children}
     </AuthContext.Provider>

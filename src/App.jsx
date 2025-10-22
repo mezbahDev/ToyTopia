@@ -1,10 +1,11 @@
 import "./App.css";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div>
-      <h1>This is app page</h1>
-    </div>
+    <>
+      <Toaster position="top-right" />
+    </>
   );
 }
 

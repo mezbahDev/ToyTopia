@@ -8,19 +8,37 @@ import ShoppingCart from "../pages/ShoppingCart";
 import NotFound from "../pages/NotFound";
 import SignUp from "../pages/SignUp";
 import ToyDetails from "../pages/ToyDetails";
+import MyProfile from "../pages/MyProfile";
+import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/products", element: <Products /> },
-      { path: "/aboutus", element: <AboutUs /> },
-      { path: "/signin", element: <Signin /> },
-      { path: "/cart", element: <ShoppingCart /> },
-      { path: "/signup", element: <SignUp /> },
-      { path: "/toys/:id", element: <ToyDetails /> },
+      { index: true, element: <Home /> },
+      { path: "products", element: <Products /> },
+      { path: "aboutus", element: <AboutUs /> },
+      { path: "signin", element: <Signin /> },
+      { path: "signup", element: <SignUp /> },
+      { path: "cart", element: <ShoppingCart /> },
+
+      {
+        path: "toys/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myprofile",
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   { path: "*", element: <NotFound /> },
