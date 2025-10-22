@@ -8,7 +8,7 @@
     "rating": 4.7,
     "availableQuantity": 75,
     "description": "Become a hero with the Lego Fire Fighter Set! This extensive set includes a detailed fire truck, fully equipped fire station, and several mini-figures, allowing children to build, role-play, and save the day in imaginative firefighting adventures. Kids can develop problem-solving skills, enhance creativity, and work collaboratively while exploring the exciting world of fire safety. The set encourages storytelling and social interaction, letting children act out scenarios that teach teamwork, responsibility, and bravery. Hours of fun, learning, and hands-on engagement are guaranteed as kids immerse themselves in realistic, interactive firefighting play.",
-    "pictureURL": "../public/assets/lego.webp",
+    "pictureURL": "/assets/lego.webp",
     "subCategory": "Building Blocks"
   },
   {
@@ -20,7 +20,7 @@
     "rating": 4.5,
     "availableQuantity": 50,
     "description": "Join Buzz Lightyear on an out-of-this-world adventure! This highly detailed action figure brings the beloved Toy Story character to life with voice commands, light-up laser action, and fully poseable joints. Children can imagine themselves as space rangers, exploring distant planets, battling evil forces, and completing heroic missions alongside Buzz. The figure encourages imaginative play, role-playing, and storytelling while providing a multisensory experience through interactive features. Perfect for solo adventures or group play, Buzz Lightyear inspires creativity, problem-solving, and social skills, delivering endless fun and excitement for children and collectors alike.",
-    "pictureURL": "../public/assets/buzz.png",
+    "pictureURL": "/assets/buzz.png",
     "subCategory": "Infant Toys"
   },
   {
@@ -32,7 +32,7 @@
     "rating": 4.8,
     "availableQuantity": 30,
     "description": "Unleash creativity with the Creative Blocks set, featuring colorful blocks in multiple shapes and sizes for constructing towers, castles, and imaginative structures. Children can enhance fine motor skills, spatial reasoning, and problem-solving abilities while engaging in open-ended play. This set promotes collaboration, storytelling, and role-playing as kids share ideas and work together to build unique creations. Ideal for both solo and group activities, the Creative Blocks set inspires endless hours of educational fun, allowing children to explore patterns, balance, and design while expressing their imagination and developing critical thinking skills.",
-    "pictureURL": "../public/assets/creativeBlocks.png",
+    "pictureURL": "/assets/creativeBlocks.png",
     "subCategory": "Dolls & Accessories"
   },
   {
@@ -44,7 +44,7 @@
     "rating": 4.6,
     "availableQuantity": 60,
     "description": "Bring home Bullseye, Woody's loyal horse, as a soft, cuddly, and realistic plush toy. Perfect for bedtime snuggles, imaginative play, or recreating Toy Story adventures, Bullseye encourages storytelling and creativity. Children can develop empathy, social skills, and emotional intelligence while interacting with this safe and durable plush companion. With attention to detail and high-quality materials, Bullseye provides a comforting and engaging play experience for kids of all ages, inspiring both solo and group play while fostering imagination, role-playing, and affectionate bonds with their favorite Toy Story character.",
-    "pictureURL": "../public/assets/bullseye.png",
+    "pictureURL": "/assets/bullseye.png",
     "subCategory": "Vehicles"
   },
   {
@@ -56,7 +56,7 @@
     "rating": 4.4,
     "availableQuantity": 80,
     "description": "Adorable My Melody plush toy perfect for cuddles, imaginative play, and storytelling. Soft, durable, and safe for children, it encourages creativity and emotional bonding. Ideal for solo play, bedtime snuggles, or group activities, this plush toy helps develop empathy and social skills. Children can invent stories, role-play, and experience a comforting companionship while enjoying a safe and high-quality toy. Its detailed design and lovable character make it a cherished addition to any child's collection, promoting engagement, imagination, and endless hours of playful interaction.",
-    "pictureURL": "../public/assets/melody.png",
+    "pictureURL": "/assets/melody.png",
     "subCategory": "Arts & Crafts"
   },
   {
@@ -68,7 +68,7 @@
     "rating": 4.5,
     "availableQuantity": 40,
     "description": "Meet Huggable Friends, interactive robotic puppies that respond to touch, sound, and movement. Children can play, cuddle, and teach tricks while developing empathy, responsibility, and care skills. The toy encourages imaginative play, social interaction, and STEM learning. With realistic movements and interactive features, kids experience multisensory fun while exploring the world of robotics. Perfect for tech-savvy children who love pets and interactive learning, Huggable Friends combines education and entertainment, providing hours of engagement and fostering creativity, problem-solving, and emotional development in a safe and enjoyable way.",
-    "pictureURL": "../public/assets/Huggable.png",
+    "pictureURL": "/assets/Huggable.png",
     "subCategory": "Electronic Toys"
   },
   {
@@ -80,7 +80,7 @@
     "rating": 4.7,
     "availableQuantity": 55,
     "description": "Bring the roar of Rex to life with this collectible figurine. Perfect for Toy Story fans and imaginative play, Rex encourages storytelling, creativity, and role-playing adventures. Children can create exciting scenes, engage in pretend play, or add to their collection for display. The figurine helps develop fine motor skills, social interaction, and imagination. Made with high-quality materials and intricate detailing, Rex provides a safe, durable, and entertaining play experience that will keep kids engaged for hours, while fostering creativity, fun, and a connection with their favorite Toy Story character.",
-    "pictureURL": "../public/assets/rex.png",
+    "pictureURL": "/assets/rex.png",
     "subCategory": "Board Games"
   },
   {
@@ -92,7 +92,7 @@
     "rating": 4.3,
     "availableQuantity": 70,
     "description": "Soft and cuddly Fluffy Bear is the perfect companion for children of all ages. Designed with high-quality plush materials, it encourages imaginative play, storytelling, and nurturing skills. Children can hug, carry, and interact with Fluffy Bear during bedtime, playtime, or travel. This toy helps develop emotional intelligence, empathy, and social skills while providing comfort and companionship. Its lovable design and attention to detail make it a treasured addition to any child's toy collection, ensuring hours of creative fun, imaginative adventures, and safe, interactive play experiences that foster bonding and emotional growth.",
-    "pictureURL": "../public/assets/fluffy bear.png",
+    "pictureURL": "/assets/fluffy bear.png",
     "subCategory": "Action Toys"
   },
   {
@@ -104,7 +104,7 @@
     "rating": 4.6,
     "availableQuantity": 65,
     "description": "The Dump Truck toy provides endless construction adventures for children, promoting imaginative play and motor skill development. Kids can load and unload materials, transport objects, and create construction scenarios that enhance problem-solving and coordination. Its durable design ensures safe and long-lasting play, while realistic features make the experience engaging and interactive. Perfect for solo play or group activities, the Dump Truck encourages creativity, teamwork, and storytelling. It offers educational value through imaginative role-playing, fine motor skill practice, and spatial awareness, ensuring hours of fun, learning, and constructive engagement.",
-    "pictureURL": "../public/assets/catDump.png",
+    "pictureURL": "/assets/catDump.png",
     "subCategory": "Educational"
   },
   {
@@ -116,7 +116,7 @@
     "rating": 4.5,
     "availableQuantity": 25,
     "description": "Take to the skies with the RC Drone Quadcopter! This remote-controlled drone features an HD camera for aerial exploration, providing a fun and educational experience. Children can develop hand-eye coordination, spatial awareness, and problem-solving skills while flying the drone indoors or outdoors. Its lightweight and durable design ensures safety, and the responsive controls allow for precise maneuvers and creative aerial play. The RC Drone encourages exploration, STEM learning, and imaginative adventures. Perfect for hobbyists and young tech enthusiasts, it offers hours of exciting, interactive fun that combines entertainment and skill development.",
-    "pictureURL": "../public/assets/drone.jpg",
+    "pictureURL": "/assets/drone.jpg",
     "subCategory": "Electronic Toys"
   },
   {
@@ -128,7 +128,7 @@
     "rating": 4.7,
     "availableQuantity": 50,
     "description": "The Wooden Train Set is a classic toy that inspires imaginative play and creativity. Featuring tracks, trains, and accessories, children can design elaborate train routes and scenarios, enhancing problem-solving, spatial awareness, and fine motor skills. This interactive toy promotes storytelling, collaboration, and hands-on learning. Ideal for solo play or group activities, the Wooden Train Set encourages children to explore concepts of movement, sequencing, and construction. Its durable and safe materials ensure long-lasting fun, making it a treasured addition to any playroom. The set provides endless hours of educational and creative play for kids of all ages.",
-    "pictureURL": "../public/assets/train.avif",
+    "pictureURL": "/assets/train.avif",
     "subCategory": "Vehicles"
   },
   {
@@ -140,7 +140,7 @@
     "rating": 4.8,
     "availableQuantity": 100,
     "description": "Challenge young minds with this classic 3x3 Puzzle Cube. Designed to improve problem-solving skills, hand-eye coordination, and concentration, it offers hours of educational fun. Children can experiment with colors, patterns, and sequences while exercising patience, critical thinking, and dexterity. The compact and durable design makes it ideal for travel, home, or classroom play. Suitable for kids and adults alike, the Puzzle Cube promotes cognitive development, strategic thinking, and creativity. It is a perfect blend of learning and entertainment, encouraging both solo and friendly competitive play in a safe and engaging way.",
-    "pictureURL": "../public/assets/cube.jpg",
+    "pictureURL": "/assets/cube.jpg",
     "subCategory": "Educational"
   },
   {
@@ -152,7 +152,7 @@
     "rating": 4.5,
     "availableQuantity": 90,
     "description": "Bring creativity to life with the Crayola Coloring Set! This comprehensive set includes crayons, markers, and coloring sheets designed to inspire artistic expression in children. Kids can develop fine motor skills, color recognition, and imaginative storytelling while creating vibrant masterpieces. Ideal for solo or group activities, the set encourages collaboration, focus, and concentration. The high-quality materials ensure safe, long-lasting use, making it a perfect gift for budding artists. Hours of fun, learning, and creativity are guaranteed as children explore colors, patterns, and textures while developing confidence and artistic skills.",
-    "pictureURL": "../public/assets/coloring.webp",
+    "pictureURL": "/assets/coloring.webp",
     "subCategory": "Arts & Crafts"
   },
   {
@@ -164,7 +164,7 @@
     "rating": 4.6,
     "availableQuantity": 45,
     "description": "The Fisher-Price Learning Laptop is an interactive educational toy designed to teach letters, numbers, and basic games. Its colorful interface and engaging activities enhance early learning, hand-eye coordination, and cognitive development. Children can explore cause-and-effect relationships, problem-solving skills, and creativity while playing. Safe and durable, it is suitable for toddlers and preschoolers. The Learning Laptop promotes independent exploration, imaginative role-playing, and concentration. Its features encourage curiosity, engagement, and foundational learning through fun and interactive play, making it an essential addition to any early childhood learning environment.",
-    "pictureURL": "../public/assets/fisher.avif",
+    "pictureURL": "/assets/fisher.avif",
     "subCategory": "Educational"
   },
   {
@@ -176,7 +176,7 @@
     "rating": 4.7,
     "availableQuantity": 35,
     "description": "Become a mini chef with the realistic Toy Kitchen Set! Complete with utensils, stove, cookware, and accessories, children can engage in imaginative cooking play. This interactive toy encourages role-playing, creativity, and social interaction. Kids can simulate real-life cooking scenarios, fostering teamwork, problem-solving, and responsibility. The high-quality, safe materials ensure durability and long-lasting fun. Perfect for solo or group play, the Toy Kitchen Set stimulates imaginative storytelling, sensory exploration, and fine motor skill development. It provides endless hours of interactive, educational, and entertaining play for young aspiring chefs.",
-    "pictureURL": "../public/assets/kitcher.jpg",
+    "pictureURL": "/assets/kitcher.jpg",
     "subCategory": "Role Play"
   },
   {
@@ -188,7 +188,7 @@
     "rating": 4.9,
     "availableQuantity": 120,
     "description": "Soft and cuddly Stuffed Teddy Bear is perfect for hugs, comfort, and imaginative play. Its high-quality plush fabric ensures safety, durability, and long-lasting companionship. Children can develop emotional skills, empathy, and nurturing instincts while engaging in role-playing or storytelling activities. The teddy bear provides a comforting presence during bedtime, travel, or solo play. Its lovable design encourages creativity, social interaction, and imaginative adventures. Ideal for kids of all ages, it is a cherished companion that inspires affection, fun, and emotional growth, making it a timeless addition to any toy collection.",
-    "pictureURL": "../public/assets/teddyBear.webp",
+    "pictureURL": "/assets/teddyBear.webp",
     "subCategory": "Stuffed Animals"
   },
   {
@@ -200,7 +200,7 @@
     "rating": 4.4,
     "availableQuantity": 60,
     "description": "The Remote Control Car offers fast-paced, thrilling play for children. Equipped with a rechargeable battery and responsive controls, it allows kids to race, drift, and maneuver with precision. The toy enhances hand-eye coordination, fine motor skills, and spatial awareness. Children can engage in solo play, competitive racing, or collaborative activities, encouraging social skills and creativity. Durable construction ensures safety during high-speed adventures. With its realistic design and exciting features, the Remote Control Car inspires imagination, problem-solving, and outdoor fun, making it a favorite for kids who enjoy interactive, action-packed play experiences.",
-    "pictureURL": "../public/assets/racing car.webp",
+    "pictureURL": "/assets/racing car.webp",
     "subCategory": "Vehicles"
   },
   {
@@ -212,7 +212,7 @@
     "rating": 4.6,
     "availableQuantity": 100,
     "description": "Educational Flash Cards help children learn numbers, letters, shapes, and animals in a fun and interactive way. Designed for toddlers and preschoolers, these colorful cards enhance memory, recognition, focus, and problem-solving skills. Kids can enjoy solo or group activities, matching and sorting the cards while developing cognitive abilities and hand-eye coordination. They also encourage early learning, creativity, and communication skills as children explore various concepts. Durable and safe for repeated use, these flash cards provide a rich learning experience while keeping young learners engaged, motivated, and entertained for hours of productive play.",
-    "pictureURL": "../public/assets/flash cards.jpg",
+    "pictureURL": "/assets/flash cards.jpg",
     "subCategory": "Educational"
   },
   {
@@ -224,7 +224,7 @@
     "rating": 4.5,
     "availableQuantity": 70,
     "description": "The Wooden Blocks Set offers children a hands-on opportunity to build, stack, and create various structures, fostering creativity, problem-solving, and fine motor skills. Its vibrant colors and varied shapes encourage imaginative play and storytelling, promoting spatial awareness and collaborative play with friends or siblings. This durable and safe toy supports cognitive development while allowing children to explore engineering concepts and structural balance. Perfect for solo or group activities, the blocks stimulate focus, concentration, and creativity. The Wooden Blocks Set is a timeless educational toy that provides endless hours of constructive play and fun.",
-    "pictureURL": "../public/assets/blockset.png",
+    "pictureURL": "/assets/blockset.png",
     "subCategory": "Building Blocks"
   },
   {
@@ -236,7 +236,7 @@
     "rating": 4.6,
     "availableQuantity": 50,
     "description": "The Magnetic Drawing Board allows children to draw, erase, and recreate endlessly, making it a mess-free alternative to traditional art supplies. It enhances creativity, fine motor skills, and hand-eye coordination, while encouraging imaginative storytelling and visual expression. Children can explore shapes, letters, and numbers in a fun, interactive way, developing early learning skills and concentration. Its portable and durable design ensures hours of safe and engaging play at home, in classrooms, or on-the-go. The Magnetic Drawing Board inspires artistic exploration, independent learning, and cognitive development, while providing a fun, stimulating, and educational experience for kids of all ages.",
-    "pictureURL": "../public/assets/draw.jpg",
+    "pictureURL": "/assets/draw.jpg",
     "subCategory": "Arts & Crafts"
   },
   {
@@ -248,7 +248,7 @@
     "rating": 4.5,
     "availableQuantity": 40,
     "description": "The Mini Boat Set is perfect for imaginative water play and outdoor adventures. Children can create various scenarios, racing, exploring, or navigating imaginary oceans. The set encourages creativity, storytelling, and problem-solving, while enhancing fine motor skills and hand-eye coordination. Safe and durable, these boats are suitable for pools, bathtubs, or shallow water play. Kids can enjoy solo or group activities, developing teamwork, social skills, and cooperative play. With its attention to detail and vibrant design, the Mini Boat Set provides hours of engaging, educational, and entertaining play that sparks curiosity, creativity, and adventurous exploration.",
-    "pictureURL": "../public/assets/hero-banner1.png",
+    "pictureURL": "/assets/hero-banner1.png",
     "subCategory": "Outdoor Toys"
   },
   {
@@ -260,7 +260,7 @@
     "rating": 4.7,
     "availableQuantity": 35,
     "description": "Race and play with the Car Set Toy! This set includes multiple cars and tracks, allowing children to design exciting racing circuits and challenge themselves or friends. It encourages creativity, strategic thinking, coordination, and competitive play, while improving hand-eye coordination and fine motor skills. The durable and safe construction ensures long-lasting fun indoors or outdoors. Children can engage in imaginative storytelling, social play, and problem-solving as they explore racing scenarios. The Car Set Toy provides endless hours of interactive entertainment, learning, and excitement, making it ideal for young car enthusiasts who enjoy collaborative and creative adventures.",
-    "pictureURL": "../public/assets/hero-banner3.png",
+    "pictureURL": "/assets/hero-banner3.png",
     "subCategory": "Vehicles & Cars"
   },
   {
@@ -272,7 +272,7 @@
     "rating": 4.8,
     "availableQuantity": 60,
     "description": "The Bear Set Toy features soft, huggable bears designed to provide comfort, imaginative play, and storytelling opportunities. Each bear encourages creativity, emotional development, and nurturing skills in children. Perfect for solo or group play, the set promotes empathy, cooperative play, and social interaction. Its durable and safe materials ensure long-lasting enjoyment and make it suitable for children of all ages. Kids can engage in role-playing adventures, cuddle time, or imaginative scenarios, fostering cognitive and emotional growth. The Bear Set Toy is a cherished addition to any toy collection, providing hours of safe, interactive, and fun learning experiences.",
-    "pictureURL": "../public/assets/hero-banner2.png",
+    "pictureURL": "/assets/hero-banner2.png",
     "subCategory": "Stuffed Animals"
   }
 ]
