@@ -96,7 +96,7 @@ const SignUp = () => {
           <p>
             Already have an account?{" "}
             <Link
-              to="/login"
+              to="/signin"
               className="text-[#FF616B] font-semibold hover:underline"
             >
               Sign In
