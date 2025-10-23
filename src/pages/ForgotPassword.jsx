@@ -30,7 +30,6 @@ const ForgotPassword = () => {
         >
           Reset Password
         </h1>
-
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3 border rounded-full px-5 py-3 shadow-sm bg-white focus-within:ring-2 focus-within:ring-[#FBC270]">
             <input

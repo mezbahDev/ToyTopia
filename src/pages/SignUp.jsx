@@ -10,10 +10,16 @@ import {
 } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  fetchSignInMethodsForEmail,
+} from "firebase/auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { register, googleLogin } = useContext(AuthContext);
+  const { register } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -36,30 +42,33 @@ const SignUp = () => {
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);
     const hasLength = password.length >= 6;
-    if (!hasUpper) {
-      Swal.fire(
-        "Error",
-        "Password must have at least one uppercase letter.",
-        "error"
+    if (!hasUpper)
+      return (
+        Swal.fire(
+          "Error",
+          "Password must have at least one uppercase letter.",
+          "error"
+        ),
+        false
       );
-      return false;
-    }
-    if (!hasLower) {
-      Swal.fire(
-        "Error",
-        "Password must have at least one lowercase letter.",
-        "error"
+    if (!hasLower)
+      return (
+        Swal.fire(
+          "Error",
+          "Password must have at least one lowercase letter.",
+          "error"
+        ),
+        false
       );
-      return false;
-    }
-    if (!hasLength) {
-      Swal.fire(
-        "Error",
-        "Password must be at least 6 characters long.",
-        "error"
+    if (!hasLength)
+      return (
+        Swal.fire(
+          "Error",
+          "Password must be at least 6 characters long.",
+          "error"
+        ),
+        false
       );
-      return false;
-    }
     return true;
   };
 
@@ -67,10 +76,8 @@ const SignUp = () => {
     e.preventDefault();
     const { fullName, email, password, confirmPassword, photoURL } = formData;
 
-    if (password !== confirmPassword) {
-      Swal.fire("Error", "Passwords do not match!", "error");
-      return;
-    }
+    if (password !== confirmPassword)
+      return Swal.fire("Error", "Passwords do not match!", "error");
 
     if (!validatePassword(password)) return;
 
@@ -101,24 +108,29 @@ const SignUp = () => {
 
   const handleGoogleSignUp = async () => {
     setLoading(true);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
     try {
-      await googleLogin();
-      Swal.fire("Success", "Signed up successfully with Google!", "success");
-      navigate("/");
-    } catch (err) {
-      console.error("Google signup failed:", err);
-      if (
-        err.code === "auth/email-already-in-use" ||
-        err.code === "auth/account-exists-with-different-credential"
-      ) {
+      const result = await signInWithPopup(auth, provider);
+      const email = result.user.email;
+      const methods = await fetchSignInMethodsForEmail(auth, email);
+
+      if (methods.length > 0) {
+        await result.user.delete();
         Swal.fire(
           "Error",
           "An account already exists with this email. Please sign in instead.",
           "error"
         );
-      } else {
-        Swal.fire("Error", "Google sign-up failed. Please try again.", "error");
+        return;
       }
+
+      Swal.fire("Success", "Signed up successfully with Google!", "success");
+      navigate("/");
+    } catch (err) {
+      console.error("Google signup failed:", err);
+      Swal.fire("Error", "Google sign-up failed. Please try again.", "error");
     } finally {
       setLoading(false);
     }

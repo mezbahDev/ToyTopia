@@ -29,7 +29,7 @@ const ToyDetails = () => {
   if (loading)
     return (
       <div className="flex justify-center items-center min-h-screen text-xl text-gray-500">
-        Loading...
+        Loading Toys...
       </div>
     );
 

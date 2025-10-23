@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       if (error.code === "auth/account-exists-with-different-credential") {
         throw new Error(
-          "An account already exists with this email but different sign-in method."
+          "An account already exists with this email but a different sign-in method."
         );
       }
       throw error;
@@ -72,6 +72,8 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  const googleLogin = () => socialLogin("google");
 
   const logout = async () => {
     setLoading(true);
@@ -92,6 +94,7 @@ const AuthProvider = ({ children }) => {
         login,
         register,
         socialLogin,
+        googleLogin,
         logout,
       }}
     >

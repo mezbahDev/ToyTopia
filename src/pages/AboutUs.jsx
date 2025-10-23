@@ -16,7 +16,6 @@ const AboutUs = () => {
       </h1>
 
       <div className="flex flex-col md:flex-row items-center gap-6 bg-white rounded-2xl shadow-lg p-6 w-full max-w-[1200px]">
-
         <div className="md:w-1/2 w-full flex justify-center">
           <img
             src={about}
@@ -78,4 +77,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-

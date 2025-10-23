@@ -9,17 +9,20 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
-import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  fetchSignInMethodsForEmail,
+} from "firebase/auth";
 
 const Signin = () => {
   const navigate = useNavigate();
-  const { login, googleLogin } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -48,44 +51,45 @@ const Signin = () => {
       } else if (error.code === "auth/wrong-password") {
         Swal.fire("Error", "Incorrect password. Try again.", "error");
       } else {
-        Swal.fire(
-          "Error",
-          "Failed to sign in. Please check your credentials.",
-          "error"
-        );
+        Swal.fire("Error", "Failed to sign in. Try again.", "error");
       }
     } finally {
       setLoading(false);
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  const handleSocialSignIn = async (providerType) => {
     setError("");
     setLoading(true);
-    try {
-      const googleProvider = new GoogleAuthProvider();
-      await googleLogin(googleProvider);
-      Swal.fire("Success", "Signed in with Google!", "success");
-      navigate("/");
-    } catch (error) {
-      console.error("Google login failed:", error);
-      setError("Google sign-in failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    const auth = getAuth();
+    const provider =
+      providerType === "google"
+        ? new GoogleAuthProvider()
+        : new GithubAuthProvider();
 
-  const handleGithubSignIn = async () => {
-    setError("");
-    setLoading(true);
     try {
-      const githubProvider = new GithubAuthProvider();
-      await googleLogin(githubProvider);
-      Swal.fire("Success", "Signed in with Github!", "success");
+      const result = await signInWithPopup(auth, provider);
+      const email = result.user.email;
+      const methods = await fetchSignInMethodsForEmail(auth, email);
+
+      if (methods.length === 0) {
+        await result.user.delete();
+        Swal.fire(
+          "Error",
+          "No account found with this email. Please sign up first.",
+          "error"
+        );
+        return;
+      }
+      Swal.fire(
+        "Success",
+        `Signed in with ${providerType === "google" ? "Google" : "GitHub"}!`,
+        "success"
+      );
       navigate("/");
     } catch (error) {
-      console.error("GitHub login failed:", error);
-      setError("GitHub sign-in failed. Please try again.");
+      console.error(`${providerType} login failed:`, error);
+      setError(`${providerType} sign-in failed. Please try again.`);
     } finally {
       setLoading(false);
     }
@@ -159,7 +163,7 @@ const Signin = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#FBC270] text-[#00000088] shadow-md font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-[#FBC270] text-[#00000088] shadow-md font-semibold py-3 rounded-full hover:bg-[#4178a1] hover:text-white transition-colors cursor-pointer disabled:opacity-50"
           >
             {loading ? "Signing In..." : "Sign In"}
           </button>
@@ -173,7 +177,7 @@ const Signin = () => {
 
         <div className="flex justify-center gap-4">
           <button
-            onClick={handleGoogleSignIn}
+            onClick={() => handleSocialSignIn("google")}
             disabled={loading}
             className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
           >
@@ -182,7 +186,7 @@ const Signin = () => {
           </button>
 
           <button
-            onClick={handleGithubSignIn}
+            onClick={() => handleSocialSignIn("github")}
             disabled={loading}
             className="flex items-center justify-center gap-2 px-5 py-3 shadow-xl rounded-full cursor-pointer transition disabled:opacity-50 hover:scale-[1.1]"
           >
